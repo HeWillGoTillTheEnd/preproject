@@ -32,7 +32,7 @@ public class QuestionController {
         this.mapper = mapper;
     }
 
-    @PostMapping
+    @PostMapping  //질문 게시글 생성, 생성하는 메서드를 만들 수 있지만 그래서 서비스 해주는 클래스를 만듦 , 질문객체
     public ResponseEntity postQuestion(@Valid @RequestBody QuestionDto.Post questionPostDto) {
         Question question = questionService.createQuestion(mapper.questionPostDtoToQuestion(questionPostDto));
         URI location = UriCreator.createUri(QUESTION_DEFAULT_URL, question.getQuestionId());
