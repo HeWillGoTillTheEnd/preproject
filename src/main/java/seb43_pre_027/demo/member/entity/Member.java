@@ -1,5 +1,6 @@
 package seb43_pre_027.demo.member.entity;
 
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -25,5 +26,5 @@ public class Member extends Auditable {
     @Column(nullable = false, updatable = false)
     private String password;
 
-
 }
+
