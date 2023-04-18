@@ -37,10 +37,6 @@ public class MemberController {
         return new ResponseEntity(HttpStatus.CREATED);
     }
 
-//    @PostMapping
-    public ResponseEntity LogIn(){
-        return null;
-    }
 
     @PatchMapping
     public ResponseEntity updateMember(){
@@ -48,15 +44,15 @@ public class MemberController {
     }
 
     //뭔매핑해야하지
-    @GetMapping("/{member-id}")
-    public ResponseEntity getMyQuestion(@PathVariable("member-id") long memberId){
-        Member member = memberService.getMember(memberId);
-        List<Question> questions = member.getQuestions();
-
-        return null;
-    }
-    @GetMapping
-    public ResponseEntity getMyComment(){
-     return null;
-    }
+//    @GetMapping("/{member-id}")
+//    public ResponseEntity getMyQuestion(@PathVariable("member-id") long memberId){
+//        Member member = memberService.getMember(memberId);
+//        List<Question> questions = member.getQuestions();
+//
+//        return null;
+//    }
+//    @GetMapping
+//    public ResponseEntity getMyComment(){
+//     return null;
+//    }
 }

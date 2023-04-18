@@ -4,7 +4,6 @@ import lombok.*;
 
 @Getter
 @Setter
-@AllArgsConstructor
 public class MemberPostDto {
     private String nickName;
 

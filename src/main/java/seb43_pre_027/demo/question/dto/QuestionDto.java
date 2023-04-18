@@ -36,6 +36,8 @@ public class QuestionDto {
     }
 
     @Getter
+    @Builder
+    @AllArgsConstructor
     public static class Response {
         private long questionId;
         private String title;
@@ -43,12 +45,5 @@ public class QuestionDto {
         private int likeCount;
         private Question.QuestionStatus questionStatus;
 
-        public Response(long questionId, String title, String body, int likeCount, Question.QuestionStatus questionStatus) {
-            this.questionId = questionId;
-            this.title = title;
-            this.body = body;
-            this.likeCount = likeCount;
-            this.questionStatus = questionStatus;
-        }
     }
 }

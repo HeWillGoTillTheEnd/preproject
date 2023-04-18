@@ -9,8 +9,8 @@ import java.util.List;
 
 @Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface QuestionMapper {
-    Question questionPostDtoToQuestion(QuestionDto.Post requestBody);
-    Question questionPatchDtoToQuestion(QuestionDto.Patch requestBody);
+    Question questionPostDtoToQuestion(QuestionDto.Post questionPostDto);
+    Question questionPatchDtoToQuestion(QuestionDto.Patch questionPatchDto);
     QuestionDto.Response questionToQuestionResponseDto(Question question);
     List<QuestionDto.Response> questionsToQuestionResponseDtos(List<Question> questions);
 }
