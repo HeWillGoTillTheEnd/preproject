@@ -3,6 +3,7 @@ package seb43_pre_027.demo.question.dto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
+import seb43_pre_027.demo.question.entity.Question;
 
 import javax.validation.constraints.NotBlank;
 
@@ -40,12 +41,14 @@ public class QuestionDto {
         private String title;
         private String body;
         private int likeCount;
+        private Question.QuestionStatus questionStatus;
 
-        public Response(long questionId, String title, String body, int likeCount) {
+        public Response(long questionId, String title, String body, int likeCount, Question.QuestionStatus questionStatus) {
             this.questionId = questionId;
             this.title = title;
             this.body = body;
             this.likeCount = likeCount;
+            this.questionStatus = questionStatus;
         }
     }
 }
