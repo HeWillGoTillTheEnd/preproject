@@ -4,11 +4,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import seb43_pre_027.demo.audit.Auditable;
-import seb43_pre_027.demo.question.entity.Question;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 @Getter
@@ -28,19 +25,5 @@ public class Member extends Auditable {
     @Column(nullable = false, updatable = false)
     private String password;
 
-    @OneToMany(mappedBy = "member")
-    private List<Question> questions = new ArrayList<>();
 
-    private enum MemberStatus {
-        MEMBER_ACTIVE("활동중"),
-        MEMBER_SLEEP("휴면 상태"),
-        MEMBER_QUIT("탈퇴 상태");
-
-        @Getter
-        private String status;
-
-        MemberStatus(String status) {
-            this.status = status;
-        }
-    }
 }
