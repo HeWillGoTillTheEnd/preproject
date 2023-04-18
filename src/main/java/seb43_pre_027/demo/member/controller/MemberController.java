@@ -7,6 +7,7 @@ import seb43_pre_027.demo.member.mapper.MemberMapper;
 import seb43_pre_027.demo.member.service.MemberService;
 import seb43_pre_027.demo.member.dto.MemberPostDto;
 import seb43_pre_027.demo.member.entity.Member;
+import seb43_pre_027.demo.question.entity.Question;
 
 import javax.validation.Valid;
 import javax.validation.constraints.Positive;
@@ -31,7 +32,9 @@ public class MemberController {
     }
     @PostMapping
     public ResponseEntity SignUp(@Valid @RequestBody MemberPostDto memberPostDto){
-        return null;
+        Member member = mapper.memberPostDtoToMember(memberPostDto);
+        memberService.createMember(member);
+        return new ResponseEntity(HttpStatus.CREATED);
     }
 
 //    @PostMapping
@@ -45,12 +48,12 @@ public class MemberController {
     }
 
     //뭔매핑해야하지
-    public ResponseEntity LogOut(){
+    @GetMapping("/{member-id}")
+    public ResponseEntity getMyQuestion(@PathVariable("member-id") long memberId){
+        Member member = memberService.getMember(memberId);
+        List<Question> questions = member.getQuestions();
+
         return null;
-    }
-    @GetMapping
-    public ResponseEntity getMyQuestion(){
-     return null;
     }
     @GetMapping
     public ResponseEntity getMyComment(){
