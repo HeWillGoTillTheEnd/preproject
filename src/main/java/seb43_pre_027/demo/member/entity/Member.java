@@ -1,22 +1,30 @@
 package seb43_pre_027.demo.member.entity;
 
-import lombok.Data;
+
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
+import seb43_pre_027.demo.audit.Auditable;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.stream.Collectors;
 
 @Entity
-@Data
-public class Member {
+@Getter
+@Setter
+@NoArgsConstructor
+public class Member extends Auditable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long Id;
+    private Long memberId;
 
-    @Column(nullable = false, length = 10000)
-    private String body;
+    @Column(nullable = false, updatable = false)
+    private String nickName;
+    @Column(nullable = false, updatable = false, unique = true)
+    private String email;
+
+    @Column(nullable = false, updatable = false)
+    private String password;
+
 }
 
