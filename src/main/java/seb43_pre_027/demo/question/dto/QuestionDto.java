@@ -22,7 +22,7 @@ public class QuestionDto {
     @Getter
     @AllArgsConstructor
     public static class Patch {
-        private long questionId;
+        private long questionId; //특정게시물
 
         @NotBlank(message = "제목은 공백이 아니어야 합니다.")
         private String title;
@@ -38,7 +38,7 @@ public class QuestionDto {
     @Getter
     @Builder
     @AllArgsConstructor
-    public static class Response {
+    public static class Response { //ㅇ/ㅐ가 포스트맨에 보여지는 값
         private long questionId;
         private String title;
         private String body;

@@ -11,7 +11,7 @@ import seb43_pre_027.demo.question.repository.QuestionRepository;
 
 import java.util.Optional;
 
-@Service
+@Service  //저장해야하고, 저장, 삭제 수정 이런 메서드들을 모아놓은 클래스
 public class QuestionService {
     private final QuestionRepository questionRepository;
 
