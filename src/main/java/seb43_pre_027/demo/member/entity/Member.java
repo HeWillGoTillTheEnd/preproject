@@ -21,13 +21,15 @@ public class Member extends Auditable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long memberId;
 
-    @Column(nullable = false, updatable = false)
+    @Column(nullable = false)
     private String nickName;
     @Column(nullable = false, updatable = false, unique = true)
     private String email;
 
-    @Column(nullable = false, updatable = false)
+    @Column(nullable = false)
     private String password;
+    @Column(nullable = false)
+    private String location = "";
 
     @OneToMany(mappedBy = "member")
     private List<Question> questions = new ArrayList<>();

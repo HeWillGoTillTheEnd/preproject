@@ -32,14 +32,15 @@ public class MemberService {
                         null);
         return findMember;
     }
-    public Member updateMember(Long memberId){
-        return null;
+    public Member updateMember(Member member){
+        Member findMember = findVerifiedMember(member.getMemberId());
+        Optional.ofNullable(member.getNickName())
+                .ifPresent(nickName -> findMember.setNickName(nickName));
+        Optional.ofNullable(member.getLocation())
+                .ifPresent(location -> findMember.setLocation(location));
+        return memberRepository.save(findMember);
     }
 
-    @Transactional(readOnly = true)
-    public Member findMember(long memberId){
-        return findVerifiedMember(memberId);
-    }
     @Transactional(readOnly = true)
     public Member findVerifiedMember(long memberId) {
         Optional<Member> optionalMember =
